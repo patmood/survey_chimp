@@ -1,0 +1,27 @@
+form {
+  text-align: center;
+}
+i {
+  color: red;
+}
+.add_question, .add_answer {
+  width: 200px;
+  height: 25px;
+  background: blue;
+  color: white;
+  border-radius: 5px;
+  margin: 10px auto;
+  line-height: 25px;
+}
+.add_question {
+  background: green;
+}
+input[type="text"] {
+  width: 50%;
+  display: inline-block;
+}
+i {
+  width: 6%;
+  display: inline-block;
+  padding-left: 10px;
+}

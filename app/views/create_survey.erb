@@ -1,46 +1,9 @@
 <div class="container">
-  Create a Survey
 <form id="create_survey" action="/survey/create" method="post">
-  <input type="text" name="title" placeholder="Survey Title"><br>
-
-<div class="question_forms">  
-
-  <div class="question_fields" data-question-id="1">
-    <input class="question_field" type="text" name="survey[1][question]" placeholder="question"><br>
-      <input type="text" name="survey[1][answer][]" placeholder="answer"><br>
-      <input type="text" name="survey[1][answer][]" placeholder="answer"><br>
-  </div>
-  <div class="add_answer">add answer</div><br>
-
-  <div class="question_fields" data-question-id="2">
-    <input class="question_field" type="text" name="survey[2][question]" placeholder="question"><br>
-      <input type="text" name="survey[2][answer][]" placeholder="answer"><br>
-      <input type="text" name="survey[2][answer][]" placeholder="answer"><br>
-  </div>
-  <div class="add_answer">add answer</div><br>
-
+<input type="text" name="title" placeholder="Survey Title"><br>
+<div class="question_forms"></div>
+<div class="add_question">ADD QUESTION</div>
+<input type="submit" value="Submit">
 </div>
 
 
-<div class="add_question">add question</div><br>
-
-  <input type="submit" value="Submit">
-</div>
-
-<script>
-  
-  $(document).ready(function(){
-
-    $('#create_survey').on('click', '.add_answer', function(event){
-      qId = $(this).prev().attr('data-question-id');
-      $(this).prev().append('<input type="text" name="survey[' + qId + '][answer][]" placeholder="answer"><br>');
-    });
-
-    $('#create_survey').on('click', '.add_question', function(event){
-      qId = parseInt($(this).prev().children('.question_fields').eq(-1).attr('data-question-id'));
-      $(this).prev().append('<div class="question_fields" data-question-id="' + (qId+1) + '"><input class="question_field" type="text" name="survey[' + (qId+1) + '][question]" placeholder="question"><br></div><div class="add_answer">add answer</div><br>');
-    });
-
-  });
-
-</script>
