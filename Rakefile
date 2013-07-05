@@ -118,6 +118,11 @@ namespace :db do
   end
 end
 
+desc 'Reset DB'
+task "reset" do
+  exec "rake db:drop && rake db:create && rake db:migrate && rake db:seed"
+end
+
 desc 'Start IRB with application environment loaded'
 task "console" do
   exec "irb -r./config/environment"
