@@ -4,18 +4,23 @@ form {
 i {
   color: red;
 }
-.add_question, .add_answer {
+.add_question, .add_choice {
   width: 200px;
   height: 25px;
   background: blue;
   color: white;
   border-radius: 5px;
-  margin: 10px auto;
+  margin: 0px auto 40px auto;
   line-height: 25px;
 }
 .add_question {
   background: green;
 }
+
+.add_question:active, .add_choice:active {
+  background: yellow;
+}
+
 input[type="text"] {
   width: 50%;
   display: inline-block;
@@ -24,4 +29,14 @@ i {
   width: 6%;
   display: inline-block;
   padding-left: 10px;
+}
+
+#create_survey > input:first-child {
+  position: relative;
+  left: -10px;
+  margin-bottom: 40px;
+}
+
+#create_survey {
+  margin-top: 20px;
 }
