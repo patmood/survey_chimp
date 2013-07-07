@@ -2,17 +2,17 @@
 
 <script>
   $(document).ready(function() {
-    $('.container').on('click', '.toggle_sign_in_up', function(event){
+    $('.sign_in_up_container').on('click', '.toggle_sign_in_up', function(event){
       event.preventDefault();
       $.ajax({
         type: "GET",
         url: $(this).attr('href'), 
         beforeSend: function() {
-          $('.container').slideUp();
+          $('.sign_in_up_container').slideUp();
           // $('.container').html('<div id=\'loader\'></div>');
         },
         success: function(data) {
-        $('.container').hide().html(data).slideDown();
+        $('.sign_in_up_container').hide().html(data).slideDown();
         }
       });
     });

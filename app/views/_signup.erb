@@ -1,3 +1,4 @@
+  <div class="sign_in_up_container">
   <form id="sign-up" method="post" action="/users">
   <h1>Sign Up</h1>
   <% if @user.errors.any? %>
@@ -5,19 +6,21 @@
       <%= erb :_errors, :layout => false, :locals => { :model => @user } %>
     </div>
   <% end %>
+  <div class="form_wrapper">
     <label class="label" for="name">Name</label>
-    <input type="text" name="user[name]" placeholder="e.g., joe" value="<%= @user.name %>">
+    <input type="text" name="user[name]" placeholder="name" value="<%= @user.name %>">
     <span id="name-errors" class="errors"></span>
 
     <label class="label" for="email">Email</label>
-    <input type="email" name="user[email]" placeholder="e.g., me@example.com" value="<%= @user.email %>">
+    <input type="email" name="user[email]" placeholder="email" value="<%= @user.email %>">
     <span id="email-errors" class="errors"></span>
 
     <label class="label" for="password">Password</label>
-    <input type="password" name="user[password]" placeholder="6 or more characters">
+    <input type="password" name="user[password]" placeholder="password">
     <span id="entered_password-errors" class="errors"></span>    
-
-    <input class="button" type="submit" value="Sign Up">
+</div>
+    <input class="button blue" type="submit" value="Sign Up">
   </form>
 
   <a class="toggle_sign_in_up" href="/login">Already have an Account? Sign In!</a>
+</div>
