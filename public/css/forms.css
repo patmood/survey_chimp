@@ -39,9 +39,17 @@ form#sign-in input[type="email"], form#sign-in input[type="password"] {
   width: 100%;
   text-align: center;
   font-size: large;
-  padding: 5px;
+  padding: 5%;
   margin: 0;
-  border: 1px solid #B4DCED;
+  margin-left: -5%;
+  border: none;
+  background: none;
+  font-weight: 700;
+  color: #1A1F2B;
+}
+
+form#sign-in input[type="email"] {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
 form#sign-in input[type="email"]:focus, form#sign-in input[type="password"]:focus {
@@ -58,11 +66,11 @@ form#sign-in .form_wrapper {
   border-radius: 12px;
   width: 30%;
   margin: 0 auto;
-  /*overflow: hidden;*/
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
   -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
   border: 1px solid rgba(0,0,0,0.5);
-  background: #1C5687;
+  background: white;
 }
 
 #loader {
