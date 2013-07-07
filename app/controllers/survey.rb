@@ -71,5 +71,11 @@ get '/survey/results/:survey_id' do
   end
   @most = @survey.map{|s|s.map{|c|c[:count]}}.flatten.max
   puts "[[[[[[[[[[[[QUESTIONS : #{@survey.map{|s| s.map{ |c| c[:count]}}.flatten.max}]]]]]]]]]]]]]"
-  erb :survey_results
+  
+  if request.xhr?
+    erb :_survey_results, layout: false
+  else
+    erb :survey_results
+  end
+
 end
