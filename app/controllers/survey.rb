@@ -7,19 +7,34 @@ get '/survey/create' do
 end
 
 post '/survey/create' do
-  puts "===============================================\n\n"
-  puts params.inspect
-  puts "\n\n==============================================="
   survey = Survey.create(:title => params[:title], :user_id => session[:user_id])
-  params[:survey].values.each do |par|
-    question = Question.create(:content => par[:question])
-    par[:choice].each do |choice|
-      question.choices << Choice.create(:content => choice)
+  unless survey.valid?
+    redirect "/?error=#{"You're questionaire was invalid. Please try again later"}"
+  else
+    params[:survey].values.each do |par|
+      if par[:choice]
+        question = Question.create(:content => par[:question])
+        par[:choice].each do |choice|
+          question.choices << Choice.create(:content => choice)
+        end
+        survey.questions << question
+      end
     end
-    survey.questions << question
+    redirect '/'
   end
-  redirect '/'
 end
+
+{
+  "1"=>
+    {"question"=>"aeljbfhkl", "choice"=>["bgjkg", "bhjkg", "bjlkh"]}, 
+  "2"=>
+    {"question"=>"vbhjl", "choice"=>["gvkl", "vg"]}, 
+  "3"=>
+    {"question"=>""}, 
+  "4"=>
+    {"question"=>""}
+}
+
 
 get '/survey/show/:id' do
   @survey = Survey.find(params[:id])
