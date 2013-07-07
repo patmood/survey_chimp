@@ -1,0 +1,16 @@
+<h1>Sign In</h1>
+
+<% if @error %>
+<div class="errors"><%= @error %></div>
+<% end %>
+
+<form id="sign-in" method="post" action="/sessions">
+<label class="label" for="email">Email</label>
+<input type="email" name="email" placeholder="e.g., me@example.com" value="<%= @email %>"><br>
+<label class="label" for="password">Password</label>
+<input type="password" name="password" placeholder="6 or more characters">
+<br>
+<input class="button" type="submit" value="Sign In">
+</form>
+
+<a class="toggle_sign_in_up" href="/signup">Don't have an Account? Sign Up!</a>
