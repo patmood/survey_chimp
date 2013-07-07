@@ -1,11 +1,37 @@
-<form action="/survey/submit" method="post">
-  <% @survey.questions.each do |question| %>
-    <%= question.content %><br>
-    <% question.choices.each do |choice| %>
-      <input type="radio" name="choice[<%= question.id %>]" value="<%= choice.id %>"><%= choice.content %><br>
+<link rel="stylesheet" href="/css/survey_form.css">
+<div class="container">
+
+  <form action="/survey/submit" method="post">
+    <% @survey.questions.each do |question| %>
+      <div class="question">
+      <div class="question_title"><%= question.content %></div>
+      <% question.choices.each do |choice| %>
+        <div class="row">
+          
+          <div class="choice">
+            <input type="radio" name="choice[<%= question.id %>]" value="<%= choice.id %>">
+          </div>
+          <div class="content">
+            <%= choice.content %>
+          </div>
+          
+        </div>
+      <% end %>
+      
+      </div>
     <% end %>
-    <br>
-  <% end %>
-  <input type="hidden" name="survey" value="<%= @survey.id %>">
-  <input type="submit" name="Submit">
-</form>
+    <input type="hidden" name="survey" value="<%= @survey.id %>">
+    <input type="submit" name="Submit" class="button" value="Complete Survey!">
+  </form>
+
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('input[type="radio"]').on('change',function(){
+      var row = $(this).parent().parent();
+      row.siblings().removeClass('highlight');
+      row.addClass('highlight');
+    });
+  });
+</script>

@@ -1,12 +1,19 @@
 get '/' do
-  @surveys = Survey.all
-  erb :index
+  unless session[:user_id] == 1
+    @user = User.new
+    erb :sign_in
+  else
+    @surveys = Survey.all
+    erb :index
+  end
 end
 
 #----------- SESSIONS -----------
 
+
 get '/sessions/new' do
   # render sign-in page
+  @user = User.new
   @email = nil
   erb :sign_in
 end
@@ -40,6 +47,24 @@ end
 
 
 #----------- USERS -----------
+get '/login' do
+  @user = User.new
+  if request.xhr?
+    erb :_signin, layout: false
+  else
+    erb :sign_in
+  end
+end
+
+get '/signup' do
+  @user = User.new
+  if request.xhr?
+    puts "hello"
+    erb :_signup, layout: false
+  else
+    erb :sign_up
+  end
+end
 
 get '/users/new' do
   # render sign-up page

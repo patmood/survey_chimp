@@ -1,17 +1,22 @@
 <div class="container">
-  <h1>Sign In</h1>
-
-  <% if @error %>
-    <div class="errors"><%= @error %></div>
-  <% end %>
-
-  <form id="sign-in" method="post" action="/sessions">
-    <label class="label" for="email">Email</label>
-    <input type="email" name="email" placeholder="e.g., me@example.com" value="<%= @email %>"><br>
-    <label class="label" for="password">Password</label>
-    <input type="password" name="password" placeholder="6 or more characters">
-    <br>
-    <div class="submit"><input type="submit" value="Sign In"></div>
-  </form>
-
+<%= erb :_signin %>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('.container').on('click', '.toggle_sign_in_up', function(event){
+      event.preventDefault();
+      $.ajax({
+        type: "GET",
+        url: $(this).attr('href'), 
+        beforeSend: function() {
+          $('.container').slideUp();
+          // $('.container').html('<div id=\'loader\'></div>');
+        },
+        success: function(data) {
+        $('.container').hide().html(data).slideDown();
+        }
+      });
+    });
+  });
+</script>
