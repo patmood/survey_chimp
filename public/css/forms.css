@@ -1,0 +1,73 @@
+#body {
+  background: #B4DCED;
+}
+
+#chimp {
+  background: url('/images/survey_chimp.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 500px;
+  position: absolute;
+  opacity: 0.7;
+  z-index: -100;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+
+}
+
+.container {
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
+}
+
+form#sign-in {
+
+}
+
+form#sign-in label {
+  display: none;
+}
+
+form#sign-in input[type="email"], form#sign-in input[type="password"] {
+  clear:both;
+  width: 100%;
+  text-align: center;
+  font-size: large;
+  padding: 5px;
+  margin: 0;
+  border: 1px solid #B4DCED;
+}
+
+form#sign-in input[type="email"]:focus, form#sign-in input[type="password"]:focus {
+  outline: none;}
+
+form#sign-in h1 {
+  padding: 0;
+  margin: 10px;
+  text-align: center;
+  font-size: 22pt;
+}
+
+form#sign-in .form_wrapper {
+  border-radius: 12px;
+  width: 30%;
+  margin: 0 auto;
+  /*overflow: hidden;*/
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+#loader {
+  background-image: url('/images/ajax_loader.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 200px;
+}

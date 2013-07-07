@@ -1,0 +1,20 @@
+<%= erb :_signin %>
+
+<script>
+  $(document).ready(function() {
+    $('.container').on('click', '.toggle_sign_in_up', function(event){
+      event.preventDefault();
+      $.ajax({
+        type: "GET",
+        url: $(this).attr('href'), 
+        beforeSend: function() {
+          $('.container').slideUp();
+          // $('.container').html('<div id=\'loader\'></div>');
+        },
+        success: function(data) {
+        $('.container').hide().html(data).slideDown();
+        }
+      });
+    });
+  });
+</script>
