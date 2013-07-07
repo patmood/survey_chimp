@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/css/survey_form.css">
 <div class="container">
 <h1><%= @survey.title %></h1>
+<a href="/" class="button red">Back To Menu</a>
   <form action="/survey/submit" method="post">
     <% @survey.questions.each do |question| %>
       <div class="question">

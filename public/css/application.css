@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 .container {
   margin: 20px auto;
   width: 800px;
@@ -6,8 +8,26 @@
 }
 
 .container h1 {
-  font-size: 17pt;
+  font-size: 24px;
+  color: #222;
+}
+p,li,ul,a {
+  color: #444;
+  font-size: 18px;
+  list-style: none;
+}
+li{
+  line-height: 1.5em;
+}
 
+li a {
+  text-decoration: none;
+}
+li a:hover {
+  color:#2980b9;
+}
+li a:visited{
+  color: #9b59b6;
 }
 
 nav {
@@ -19,11 +39,13 @@ nav {
 nav .brand, nav .brand a {
   margin-left: 25px;
   margin-top: 5px;
-  font-size: 18pt;
+  font-size: 24pt;
+  font-style: italic;
   text-decoration: none;
-  color: #444;
+  color: #FFF;
   width: 60%;
   display: inline-block;
+  font-family: 'Open Sans', sans-serif;
 }
 
 nav ul {
@@ -74,6 +96,9 @@ form.quirks {
   margin-right: 20px;
   width: 200px;
 }
+button {
+  border: none;
+}
 .button {
   background: #95a5a6;
   border-radius: 5px;
@@ -85,9 +110,6 @@ form.quirks {
 }
 input[type="submit"].button {
   border: none;
-}
-div.button {
-
 }
 .button:hover{
     background: #7f8c8d;
@@ -110,6 +132,12 @@ div.button {
 .purple:hover{
   background: #8e44ad;
 }
+.red {
+  background: #e74c3c;
+}
+.red:hover{
+  background: #c0392b;
+}
 a.button{
   text-decoration: none;
 }
@@ -126,10 +154,18 @@ a:hover.button{
   display: inline-block;
   width: 70%;
   vertical-align: top;
+  padding: 0 15px 15px 15px;
 }
 .index_menu {
   margin: 10px;
   display: block;
-
 }
-
+.big {
+  min-width: 200px;
+  padding: 15px;
+  font-size: 18px;
+}
+#logout {
+  margin: 10px;
+  display: block;
+}
