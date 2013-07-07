@@ -1,11 +1,35 @@
 <div class="container">
   <h1>Survey Results:</h1>
-  <ul>
-    <li>
-    <%= @count%>
-      
-    </li>
+    <% @survey.each do |question| %>
+      <div class="question_title"><%= question[0][:question] %></div>
+      <div class="question_stats">
+      <% question.each do |choice| %>
+        <div><%= choice[:count] %> people said <%= choice[:content] %></div>
+      <% end %>
+      </div>
+
+      <div class="question_charts">
+      <% question.each do |choice| %>
+        <div style="width: 0%;" data-width="<%= ((choice[:count].to_f / @most) * 97) + 1 %>%">
+          <span><%= choice[:count] unless choice[:count] == 0 %></span>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
       
   </ul>
   <a href="/survey/create">Create Survey</a>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('.question_charts div').each(function(index){
+      $(this).delay(50*index).animate({ 
+        width: $(this).attr('data-width') 
+      }, { 
+        duration: 1200, easing: 'easeOutElastic', 
+        complete: function() { $(this).children().fadeIn(500); } 
+      });
+    });
+  });
+</script>

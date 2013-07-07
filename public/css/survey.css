@@ -40,3 +40,40 @@ i {
 #create_survey {
   margin-top: 20px;
 }
+.question_charts, .question_stats {
+  float: left;
+  width: 44%;
+  padding: 3%;
+}
+
+.question_stats div {
+  height: 20px;
+  line-height: 20px;
+  margin: 5px;
+}
+
+.question_charts {
+
+}
+.question_charts div {
+  height: 20px;
+  background: linear-gradient(left, #006100 0%, #008000 100%);
+  background: -webkit-linear-gradient(left, #006100 0%, #008000 100%);
+  border-radius: 5px;
+  margin: 5px;
+  text-align: right;
+  color: rgba(255,255,255,0.0);
+  font-weight: 100;
+  padding-right: 5px;
+}
+.question_charts div span {
+  color: white;
+  display: none;
+  height: 20px;
+  line-height: 20px;
+  font-size: 10pt;
+  text-align: right;
+}
+.question_title {
+  clear: both;
+}

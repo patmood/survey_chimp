@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  
 
   $('#create_survey').on('click', '.add_choice', function(event){
     qId = $(this).prev().attr('data-question-id');

@@ -6,7 +6,7 @@ post '/survey/create' do
   puts "===============================================\n\n"
   puts params.inspect
   puts "\n\n==============================================="
-  survey = Survey.create(:title => params[:title])
+  survey = Survey.create(:title => params[:title], :user_id => session[:user_id])
   params[:survey].values.each do |par|
     question = Question.create(:content => par[:question])
     par[:choice].compact.each do |choice|
@@ -28,8 +28,6 @@ post '/survey/submit' do
   puts "\n\n==============================================="
 
   @user = User.find(session[:user_id])
-  p @user
-
   c_s = @user.completed_surveys.create(survey_id: params[:survey])
   params[:choice].each do |question, choice|
     c_s.answers.create(question_id: question, choice_id: choice)
@@ -45,13 +43,15 @@ get '/user/surveys' do
 end
 
 get '/survey/results/:survey_id' do
-  @count = []
-  @survey = Survey.find(params[:survey])
-  @all_qs = @survey.questions
+  @survey = []
+  @all_qs = Survey.find(params[:survey_id]).questions
   @all_qs.each do |question|
-    question.choices.each do |choice|
-      @count << Answer.find_all_by_choice_id(choice.id).count
+    @survey << question.choices.each_with_index.map do |choice,index|
+      {question: question.content, content: choice.content, 
+       count: Answer.where(choice_id: choice.id).count}
     end
   end
+  @most = @survey.map{|s|s.map{|c|c[:count]}}.flatten.max
+  puts "[[[[[[[[[[[[QUESTIONS : #{@survey.map{|s| s.map{ |c| c[:count]}}.flatten.max}]]]]]]]]]]]]]"
   erb :survey_results
 end
