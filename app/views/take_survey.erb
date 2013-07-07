@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/css/survey_form.css">
 <div class="container">
-
+<h1><%= @survey.title %></h1>
   <form action="/survey/submit" method="post">
     <% @survey.questions.each do |question| %>
       <div class="question">
@@ -21,7 +21,7 @@
       </div>
     <% end %>
     <input type="hidden" name="survey" value="<%= @survey.id %>">
-    <input type="submit" name="Submit" class="button" value="Complete Survey!">
+    <input type="submit" name="Submit" class="button green" value="Complete Survey!">
   </form>
 
 </div>

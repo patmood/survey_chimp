@@ -5,20 +5,14 @@ i {
   color: red;
 }
 .add_question, .add_choice {
-  width: 200px;
-  height: 25px;
-  background: blue;
-  color: white;
   border-radius: 5px;
   margin: 0px auto 40px auto;
   line-height: 25px;
 }
 .add_question {
-  background: green;
 }
 
 .add_question:active, .add_choice:active {
-  background: yellow;
 }
 
 input[type="text"] {

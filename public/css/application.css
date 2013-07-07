@@ -73,3 +73,33 @@ form.quirks {
   margin-right: 20px;
   width: 200px;
 }
+.button {
+    background: #95a5a6;
+    border-radius: 5px;
+    color: #fff;
+    text-align:center;
+    padding:10px;
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    font-size: 16px;
+}
+.button:hover{
+    background: #7f8c8d;
+}
+.green {
+    background: #2ecc71;
+}
+.green:hover {
+    background: #27ae60;
+}
+.blue {
+    background: #3498db;
+}
+.blue:hover {
+    background: #2980b9;
+}
+.purple {
+  background: #9b59b6;
+}
+.purple:hover{
+  background: #8e44ad;
+}
