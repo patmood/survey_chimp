@@ -72,3 +72,12 @@ i {
 .question_title {
   clear: both;
 }
+input.survey-title {
+  font-size: 24px;
+  width: 70%;
+}
+input.survey-question{
+  font-size: 18px;
+}
+input.survey-choice {
+}

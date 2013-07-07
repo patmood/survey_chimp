@@ -110,3 +110,26 @@ div.button {
 .purple:hover{
   background: #8e44ad;
 }
+a.button{
+  text-decoration: none;
+}
+a:hover.button{
+  text-decoration: none;
+}
+.index_sidebar_left {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+
+}
+.index_sidebar_right {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+}
+.index_menu {
+  margin: 10px;
+  display: block;
+
+}
+

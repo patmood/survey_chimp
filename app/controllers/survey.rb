@@ -1,5 +1,9 @@
 get '/survey/create' do
-  erb :create_survey
+  if request.xhr?
+    erb :_create_survey, layout: false
+  else
+    erb :create_survey
+  end
 end
 
 post '/survey/create' do
@@ -22,6 +26,15 @@ get '/survey/show/:id' do
   erb :take_survey
 end
 
+get '/survey/list' do
+  @surveys = Survey.all
+  if request.xhr?
+    erb :_list_surveys, layout: false
+  else
+    erb :list_surveys
+  end  
+end
+
 post '/survey/submit' do
   puts "===============================================\n\n"
   puts params.inspect
@@ -39,7 +52,11 @@ end
 
 get '/user/surveys' do
   @surveys = Survey.find_all_by_user_id(session[:user_id])
-  erb :my_surveys
+  if request.xhr?
+    erb :_my_surveys, layout: false
+  else
+    erb :my_surveys
+  end
 end
 
 get '/survey/results/:survey_id' do
