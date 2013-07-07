@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Survey Results:</h1>
+  <h1>Survey Results: <%= @title %></h1>
     <% @survey.each do |question| %>
       <div class="question_title"><%= question[0][:question] %></div>
       <div class="question_stats">

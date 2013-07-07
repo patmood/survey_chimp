@@ -52,8 +52,7 @@ i {
 }
 .question_charts div {
   height: 20px;
-  background: linear-gradient(left, #006100 0%, #008000 100%);
-  background: -webkit-linear-gradient(left, #006100 0%, #008000 100%);
+  background: #16a085;
   border-radius: 5px;
   margin: 5px;
   text-align: right;

@@ -13,7 +13,7 @@ post '/survey/create' do
   survey = Survey.create(:title => params[:title], :user_id => session[:user_id])
   params[:survey].values.each do |par|
     question = Question.create(:content => par[:question])
-    par[:choice].compact.each do |choice|
+    par[:choice].each do |choice|
       question.choices << Choice.create(:content => choice)
     end
     survey.questions << question
@@ -61,6 +61,7 @@ end
 
 get '/survey/results/:survey_id' do
   @survey = []
+  @title = Survey.find(params[:survey_id]).title
   @all_qs = Survey.find(params[:survey_id]).questions
   @all_qs.each do |question|
     @survey << question.choices.each_with_index.map do |choice,index|

@@ -75,13 +75,13 @@ form.quirks {
   width: 200px;
 }
 .button {
-    background: #95a5a6;
-    border-radius: 5px;
-    color: #fff;
-    text-align:center;
-    padding:10px;
-    font-family: "Century Gothic", Helvetica, sans-serif;
-    font-size: 16px;
+  background: #95a5a6;
+  border-radius: 5px;
+  color: #fff;
+  text-align:center;
+  padding:10px;
+  font-family: "Century Gothic", Helvetica, sans-serif;
+  font-size: 16px;
 }
 input[type="submit"].button {
   border: none;
