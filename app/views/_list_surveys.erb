@@ -1,0 +1,9 @@
+  <h1>Take a Survey!</h1>
+    <ul>
+      <% @surveys.each do |survey| %>
+        <% unless CompletedSurvey.find_by_survey_id_and_user_id(survey.id,session[:user_id]) %>
+          <li><a href="/survey/show/<%= survey.id %>"><%= survey.title %></a></li>
+        <% end %>
+      <% end %>
+    </ul>
+
