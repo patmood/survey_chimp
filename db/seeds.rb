@@ -8,7 +8,9 @@ prime = User.create({
 
 
 5.times do
-  user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "password")
+  10.times do
+    user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "password")
+  end
   1.times do
     survey = prime.surveys.create(title: Faker::Lorem.words(3).join(" "))
     10.times do
