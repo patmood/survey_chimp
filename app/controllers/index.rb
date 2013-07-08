@@ -1,7 +1,7 @@
 get '/' do
   @error = params[:error] if params[:error]
   p @error
-  unless session[:user_id] == 1
+  unless session[:user_id]
     @user = User.new
     erb :sign_in
   else

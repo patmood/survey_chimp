@@ -20,6 +20,19 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 require 'bcrypt'
+require 'omniauth-twitter'
+require 'omniauth'
+
+configure do
+  enable :sessions
+  
+  use OmniAuth::Builder do
+    provider :twitter, ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET']
+  end
+end
+
+ENV['CONSUMER_KEY'] ||= 'UGKA6aBQ1dNUx5FF4XZoQ'
+ENV['CONSUMER_SECRET'] ||= 'D3yp1mnoP1i7qoFNBTMjGZSYOSn04olFkHJrQ1JS8'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
