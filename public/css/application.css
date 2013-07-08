@@ -138,6 +138,44 @@ input[type="submit"].button {
 .red:hover{
   background: #c0392b;
 }
+.twitter {
+  background: #ecf0f1;
+  color: #2980b9;
+  width: 230px;
+  margin: 10px auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+.twitter i {
+  background: none;
+  position: absolute;
+  right: 10%;
+  top: 0;
+  transition: all 2s ease 0.25s;
+  -o-transition: all 2s ease 0.25s;
+  -ms-transition: all 2s ease 0.25s;
+  -moz-transition: all 2s ease 0.25s;
+  -webkit-transition: all 2s ease 0.25s;
+}
+.twitter:hover{
+  background: #bdc3c7;
+  color: #3498db;
+}
+.twitter:hover i {
+  color: #3498db;
+  top: -50px;
+  right: -1000px;
+  transition: all 2s ease 0.25s;
+  -o-transition: all 2s ease 0.25s;
+  -ms-transition: all 2s ease 0.25s;
+  -moz-transition: all 2s ease 0.25s;
+  -webkit-transition: all 2s ease 0.25s;
+}
 a.button{
   text-decoration: none;
 }
